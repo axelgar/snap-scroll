@@ -12,7 +12,6 @@ body {
   padding: 0;
 }
 
-
 /* ---- typography ---- */
 
 body {
@@ -22,48 +21,50 @@ body {
   line-height: 147%;
 }
 
-h1 {}
-
-h2 {}
-
-h3 {}
-
 p {
   margin: 0;
 }
 
-
-
 /* ---- layout ---- */
 
-
-
-
-/* ---- components ---- */
-
-
-/* ---- section ---- */
 .snap-container {
   height: 100vh;
-  background: red;
-  scroll-snap-type: y mandatory;
+  height: calc(var(--vh, 1vh) * 100);
+
+  -webkit-overflow-scrolling: touch;
   overflow: scroll;
+
+  scroll-snap-destination: 0 0;
+
+  -webkit-scroll-snap-points-y: repeat(100vh);
+  -webkit-scroll-snap-points-y: repeat(calc(var(--vh, 1vh) * 100));
+  -ms-scroll-snap-points-y: repeat(100vh);
+  -ms-scroll-snap-points-y: repeat(calc(var(--vh, 1vh) * 100));
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-points-y: repeat(calc(var(--vh, 1vh) * 100));
+
+  -webkit-scroll-snap-type: mandatory;
+  -ms-scroll-snap-type: mandatory;
+  scroll-snap-type: y mandatory;
+  scroll-snap-type: mandatory;
+}
+
+.snap-child {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+
+  -webkit-scroll-snap-coordinate: 0% 0%;
+  scroll-snap-align: start;
 }
 
 .snap-child:nth-child(1) {
-  height: 100vh;
   background: coral;
-  scroll-snap-align: start;
 }
 
 .snap-child:nth-child(2) {
-  height: 100vh;
   background: seagreen;
-  scroll-snap-align: start;
 }
 
 .snap-child:nth-child(3) {
-  height: 100vh;
-  background: yellowgreen;
-  scroll-snap-align: start;
+  background: violet;
 }
